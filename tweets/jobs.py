@@ -6,13 +6,13 @@ import datetime
 import os
 from .models import scrapped_tweet, trending_tweet as trending_tweet_ids
 
-secret_key = os.environ.get['secret_key']
+secret_key = os.environ.get('secret_key')
 
-secret_key_api = os.environ.get['secret_key_api']
+secret_key_api = os.environ.get('secret_key_api')
 
-access_token = os.environ.get['acess_token']
+access_token = os.environ.get('acess_token')
 
-access_token_api = os.environ.get['access_token_api']
+access_token_api = os.environ.get('access_token_api')
 
 auth = tweepy.OAuthHandler(secret_key, secret_key_api)
 
