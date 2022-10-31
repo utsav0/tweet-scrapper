@@ -6,3 +6,4 @@ schedule==1.1.0
 tweepy==4.11.0
 tzdata==2022.1
 urllib3==1.26.9
+dj-database-url==1.0.0

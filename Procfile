@@ -1,1 +1,1 @@
-web: gunicorn tweet_scrapper.wsgi
+web: python manage.py migrate && gunicorn tweet_scrapper.wsgi
