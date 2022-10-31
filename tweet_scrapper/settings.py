@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get['django_secret_key']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["django-server-production-5332.up.railway.app"]
+ALLOWED_HOSTS = ["tweet-scrapper.up.railway.app"]
 
 
 # Application definition
@@ -130,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CSRF_TRUSTED_ORIGINS = ['https://django-server-production-5332.up.railway.app/']
