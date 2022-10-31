@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride the Bird</title>
+    <style>
+        .tweets_container {
+            border: 3px solid greenyellow;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .tweets {
+            border: 3px solid #2ddaa2;
+            max-width: 500px;
+            margin: 5px;
+            text-align: center;
+        }
+        #time_diff{
+            color: #7b0025;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tweets_container">
+
+        {%for tweet in tweets%}
+        <div class="tweets">
+            <h1>Tweet {{forloop.counter}}</h1>
+            <p id="time_diff">{{tweet.1}}</p>
+            <blockquote class="twitter-tweet">
+                <p lang="en" dir="ltr"><a
+                        href="https://twitter.com/anyone/status/{{tweet.0}}?ref_src=twsrc%5Etfw"></a>
+            </blockquote>
+        </div>
+        {%endfor%}
+    </div>
+
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+
+</html>
