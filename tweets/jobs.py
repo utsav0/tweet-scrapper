@@ -10,7 +10,7 @@ secret_key = os.environ.get('secret_key')
 
 secret_key_api = os.environ.get('secret_key_api')
 
-access_token = os.environ.get('acess_token')
+access_token = os.environ.get('access_token')
 
 access_token_api = os.environ.get('access_token_api')
 
