@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .jobs import get_trending_tweets, time_diff_in_secs
 import os
-print(os.environ.get('secret_key'))
 def get_tweets_to_show():
     tweet_list = []
     for each_tweet in get_trending_tweets():
