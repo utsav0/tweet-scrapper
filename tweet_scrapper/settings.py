@@ -128,4 +128,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Manually added
-CSRF_TRUSTED_ORIGINS = ['tweet-scrapper.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://tweet-scrapper.up.railway.app']
