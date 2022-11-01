@@ -121,6 +121,7 @@ def delete_older_tweets():
 
 # Initiates the whole scrapping process
 def awake_scrapper():
+    print("awakening")
     delete_older_tweets()
     scrape()
 
