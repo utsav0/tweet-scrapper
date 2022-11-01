@@ -1,7 +1,4 @@
-from schedule import Scheduler
-import threading
 import tweepy
-import time
 import datetime
 import os
 from .models import scrapped_tweet, trending_tweet as trending_tweet_ids
@@ -118,34 +115,3 @@ def delete_older_tweets():
         else:
             updated_trending_tweets.append(this_tweet)
     update_treding_list(updated_trending_tweets)
-
-# Initiates the whole scrapping process
-def awake_scrapper():
-    print("awakening")
-    delete_older_tweets()
-    scrape()
-
-def run_continuously(self, interval=7200):
-
-    cease_continuous_run = threading.Event()
-
-    class ScheduleThread(threading.Thread):
-
-        @classmethod
-        def run(cls):
-            while not cease_continuous_run.is_set():
-                self.run_pending()
-                time.sleep(interval)
-
-    continuous_thread = ScheduleThread()
-    continuous_thread.setDaemon(True)
-    continuous_thread.start()
-    return cease_continuous_run
-
-Scheduler.run_continuously = run_continuously
-
-def start_scheduler():
-    scheduler = Scheduler()
-    scheduler.every().second.do(awake_scrapper)
-    scheduler.run_continuously()
-start_scheduler()
