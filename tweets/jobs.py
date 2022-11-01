@@ -63,7 +63,7 @@ def trending_tweet(tweet):
 
 # Gets the latest tweets by seaching and then check if they're trending
 
-def scrap():
+def scrape():
     tweet_id_list = []
     current_date = str(datetime.date.today())
     searched_tweets = api.search_tweets(
@@ -82,7 +82,6 @@ def scrap():
                 pass
     update_timeline(tweet_id_list)
 # Update the old trending list to the given new list
-scrap()
 
 def update_treding_list(updated_tweet_list):
     trending_tweet_ids.objects.all().delete()
@@ -120,9 +119,10 @@ def delete_older_tweets():
             updated_trending_tweets.append(this_tweet)
     update_treding_list(updated_trending_tweets)
 
+# Initiates the whole scrapping process
 def awake_scrapper():
     delete_older_tweets()
-    scrap()
+    scrape()
 
 def run_continuously(self, interval=7200):
 
