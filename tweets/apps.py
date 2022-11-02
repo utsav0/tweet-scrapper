@@ -7,7 +7,7 @@ class TweetsConfig(AppConfig):
     name = 'tweets'
 
     def ready(self):
-        from . import jobs
+        from . import views
 
         if os.environ.get('RUN_MAIN', None) != 'true':
-            jobs.start_scheduler()
+            views.start_scheduler()
