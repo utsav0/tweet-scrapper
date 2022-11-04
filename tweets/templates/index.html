@@ -21,23 +21,10 @@
             max-width: 500px;
             margin: 5px;
             text-align: center;
-            padding-bottom: 20px;
         }
         #time_diff{
             color: #7b0025;
             font-weight: bold;
-        }
-
-        .twitter-tweet {
-            margin-top: -8vh !important;
-            width: 0;
-        }
-
-        .preloader{
-            width: 100%;
-            z-index: -1;
-            height: 5vh;
-            color: blue;
         }
     </style>
 </head>
@@ -49,7 +36,6 @@
         <div class="tweets">
             <h1>Tweet {{forloop.counter}}</h1>
             <p id="time_diff">{{tweet.1}}</p>
-            <div class="preloader">Fetching the tweets...</div>
             <blockquote class="twitter-tweet">
                 <p lang="en" dir="ltr"><a
                         href="https://twitter.com/anyone/status/{{tweet.0}}?ref_src=twsrc%5Etfw"></a>
