@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .jobs import get_trending_tweets, time_diff_in_secs, delete_older_tweets, scrape
-
+from .jobs import get_tweets_to_show, delete_older_tweets, scrape
 import threading
 import time
 from schedule import Scheduler
@@ -35,17 +34,16 @@ def start_scheduler():
     scheduler.run_continuously()
 start_scheduler()
 
-def get_tweets_to_show():
-    tweet_list = []
-    for each_tweet in get_trending_tweets():
-        time_diff = time_diff_in_secs(each_tweet[1])/3600
-        time_diff_of_hours = int(time_diff)
-        time_diff_of_minutes = int(((time_diff % 1)/10)*60)
-        time_diff_final = f"{time_diff_of_hours} hours and {time_diff_of_minutes} minutes older"
-        tweet_list.append([each_tweet[0], time_diff_final])
-    return tweet_list
 
 def home(request):
-    params = {"tweets": get_tweets_to_show()}
+    tweets = get_tweets_to_show()
+    print("the length of the tweets: ",len(tweets))
+
+    if len(tweets) > 0:
+        tweets_not_available_msg = ""
+    else:
+        tweets_not_available_msg = "Oops! No tweets available, please check back later."
+    params = {"tweets": tweets, "tweets_not_available_msg": tweets_not_available_msg}
     return render(request, "index.html", params)
+
 

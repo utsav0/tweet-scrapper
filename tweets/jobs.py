@@ -11,6 +11,14 @@ access_token = os.environ.get('access_token')
 
 access_token_api = os.environ.get('access_token_api')
 
+secret_key = "0DGIfbKapOjP2BvCSpp3UBMOL"
+
+secret_key_api = "TllXoqSqGOGuLoIOc1s0qlPmbVphFNT00Pyl4nhGQuZ3dubYV4"
+
+access_token = "1584841697783328773-txFqi7OKlmKf1oZpAnd52JFtqpoobt"
+
+access_token_api = "DFZZCZHOkWqnc1Kkyz2pwH3iQboKzk73NLxbL8ETcIgQM"
+
 auth = tweepy.OAuthHandler(secret_key, secret_key_api)
 
 auth.set_access_token(access_token, access_token_api)
@@ -23,7 +31,6 @@ def get_last_search():
     return list((scrapped_tweet.objects.values_list("tweet_id")))
 
 # Update the latest scrapped tweets
-
 
 def update_timeline(ids_list):
     scrapped_tweet.objects.all().delete()
@@ -115,3 +122,14 @@ def delete_older_tweets():
         else:
             updated_trending_tweets.append(this_tweet)
     update_treding_list(updated_trending_tweets)
+
+
+def get_tweets_to_show():
+    tweet_list = []
+    for each_tweet in get_trending_tweets():
+        time_diff = time_diff_in_secs(each_tweet[1])/3600
+        time_diff_of_hours = int(time_diff)
+        time_diff_of_minutes = int(((time_diff % 1)/10)*60)
+        time_diff_final = f"{time_diff_of_hours} hours and {time_diff_of_minutes} minutes older"
+        tweet_list.append([each_tweet[0], time_diff_final])
+    return tweet_list

@@ -26,20 +26,25 @@
             color: #7b0025;
             font-weight: bold;
         }
+        .no_tweet_msg{
+            color: red;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
+    <h2 class="no_tweet_msg">{{tweets_not_available_msg}}</h1>
     <div class="tweets_container">
 
         {%for tweet in tweets%}
         <div class="tweets">
             <h1>Tweet {{forloop.counter}}</h1>
             <p id="time_diff">{{tweet.1}}</p>
-            <blockquote class="twitter-tweet">
+            <blockquote class="twitter-tweet" id="hh">
                 <p lang="en" dir="ltr"><a
-                        href="https://twitter.com/anyone/status/{{tweet.0}}?ref_src=twsrc%5Etfw"></a>
-            </blockquote>
+                    href="https://twitter.com/anyone/status/{{tweet.0}}?ref_src=twsrc%5Etfw"></a>
+                </blockquote>
         </div>
         {%endfor%}
     </div>
