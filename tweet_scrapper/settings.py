@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('django_secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["tweet-scrapper.up.railway.app", '127.0.0.1']
+ALLOWED_HOSTS = ["tweet-scrapper.up.railway.app", '127.0.0.1', '35.230.86.203']
 
 
 # Application definition
